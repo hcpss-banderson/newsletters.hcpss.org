@@ -19,6 +19,7 @@ COPY symfony/symfony.lock       /var/www/symfony/symfony.lock
 RUN mkdir -p /var/www/symfony/var \
     && chown -R www-data:www-data /var/www/symfony/var \
     && mkdir /messages \
-    && mkdir /var/www/symfony/credentials
+    && mkdir /var/www/symfony/credentials \
+    && chown -R www-data:www-data /var/www/symfony/credentials
 
 RUN composer install
