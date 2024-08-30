@@ -1,0 +1,18 @@
+---
+services:
+  symfony:
+    container_name: newsletters_web
+    image: reg.hcpss.org/newsletters/web
+    build: .
+    volumes:
+      - ./symfony:/var/www/symfony
+      - ./messages:/messages
+    ports:
+      - "8485:80"
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_SECRET: ${APP_SECRET}
+      GMAIL_ADDRESS: ${GMAIL_ADDRESS}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+      IKONN_CLIENT_ID: ${IKONN_CLIENT_ID}
+      IKONN_CLIENT_SECRET: ${IKONN_CLIENT_SECRET}

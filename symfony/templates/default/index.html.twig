@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HCPSS Newsletters{% endblock %}
+
+{% block body %}
+    <h1>HCPSS Newsletters</h1>
+
+    {% for level, schools in levels %}
+        <li>
+            {{ level }}
+            <ul>
+            {% for school in schools %}
+                <li><a href="{{ path('app_email_list', {'acronym': school.acronym}) }}">{{ school.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+{% endblock %}

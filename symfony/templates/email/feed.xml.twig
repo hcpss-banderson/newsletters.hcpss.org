@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>{{ acronym|upper }} Newsletters</title>
+        <description>{{ acronym|upper }} Newsletters</description>
+        <lastBuildDate>{{ "now"|date('D, d M Y H:i:s O') }}</lastBuildDate>
+        <link>https://{{ acronym }}.hcpss.org</link>
+        {% for item in items %}
+            <item>
+                <title>{{ item.subject }}</title>
+                <description>{{ item.description|u.truncate(200, '...') }}</description>
+                <pubDate>{{ item.date }}</pubDate>
+                <link>{{ item.link }}</link>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

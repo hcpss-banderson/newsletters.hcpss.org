@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ acronym|upper }} Newsletters
+{% endblock %}
+
+{% block body %}
+    <h1>{{ acronym|upper }} Newsletters</h1>
+
+    <ul>
+    {% for item in items %}
+        <li>
+            <a href="{{ item.link }}">{{ item.subject }}</a><br>
+            {{ item.date }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
